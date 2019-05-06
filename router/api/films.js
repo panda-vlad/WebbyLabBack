@@ -123,7 +123,7 @@ const app = router => {
       return res.status(400).json({msg: 'Not correct data type'})
 
     sampleFile = req.files.sampleFile;
-	
+
     if(!fs.existsSync(__dirname + '/uploads'))
       fs.mkdirSync(__dirname + '/uploads')
 
@@ -131,7 +131,7 @@ const app = router => {
 
     sampleFile.mv(uploadPath, function(err) {
       if (err) {
-        return res.status(500).send(err);
+        return res.status(500).send('Can not download file' + err);
       }
 
       const data = req.files.sampleFile.data.toString('ascii');
