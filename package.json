@@ -1,0 +1,31 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vlad1slavIP74/WebbyLab.git"
+  },
+  "author": "Vlad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vlad1slavIP74/WebbyLab/issues"
+  },
+  "homepage": "https://github.com/Vlad1slavIP74/WebbyLab#readme",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "express": "^4.16.4",
+    "express-fileupload": "^1.1.4",
+    "mocha": "^6.1.4",
+    "mongoose": "^5.5.2",
+    "should": "^13.2.3"
+  }
+}
