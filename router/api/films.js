@@ -123,6 +123,9 @@ const app = router => {
       return res.status(400).json({msg: 'Not correct data type'})
 
     sampleFile = req.files.sampleFile;
+	
+    if(!fs.existsSync(__dirname + '/uploads'))
+      fs.mkdirSync(__dirname + '/uploads')
 
     uploadPath = __dirname + '/uploads/' + sampleFile.name;
 
