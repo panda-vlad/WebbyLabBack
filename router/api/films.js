@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
+const express = require('express');
 const fs = require('fs');
 
 const filmsValidator = require('../../validators/film')
 const Films = require('../../models/Films')
+const queues = require('../../ queues')
 
+const router = express.Router();
 const title = [];
 const release = [];
 const format = [];
@@ -19,10 +22,12 @@ const toTitleCase = (phrase) => {
 };
 
 
+
+
 const app = router => {
   // @route Get /test
   // @ desc Get test
-  router.get('/test', (req, res) => res.json({msg: "Welcome in Rest API"}));
+  router.get('/test', queues.test);
 
 
   // @route Get /film/:name
@@ -30,7 +35,7 @@ const app = router => {
   router.get('/film/:name', (req, res) => {
     console.log(' response ' + req.params.name);
     if(req.params.name.length === 0)
-      if (err) res.status(400).json({msg: 'Can not be blank'});
+       res.status(400).json({msg: 'Can not be blank'});
     Films
     .find({
       'name': { '$regex': req.params.name, '$options': 'i'}

@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Vlad1slavIP74/WebbyLab#readme",
   "dependencies": {
     "assert": "^1.4.1",
+    "babel": "^6.23.0",
     "body-parser": "^1.18.3",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
@@ -28,5 +29,15 @@
     "mocha": "^6.1.4",
     "mongoose": "^5.5.2",
     "should": "^13.2.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "prettier": "^1.17.1"
   }
 }

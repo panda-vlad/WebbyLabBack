@@ -1,20 +1,26 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const fileUpload = require('express-fileupload');
-
+const middlewares = require('./middlewares/middlewares.js')
 const db = require('./mongoose/config').mongoURI;
 const films = require('./router/api/films')
-const app = express(),
-cors = require('cors');
 
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
-app.use(bodyParser.json());
-app.use(cors())
+//Intial app
+const app = express();
 
-app.use(fileUpload());
+// app.use(bodyParser.urlencoded({
+//   extended: true
+// }));
+// app.use(cors())
+// app.use(fileUpload());
+// app.use(bodyParser.json())
+
+app.use(middlewares.urlencoded)
+app.use(middlewares.json)
+app.use(middlewares.cors)
+app.use(middlewares.fileUpload)
+
+// routess
+films(app)
 
 app.set('json spaces', 3);
 
@@ -24,7 +30,7 @@ mongoose
   .then(() => console.log('Connected'))
   .catch(err => console.log(err));
 
-films(app)
+
 
 const server = app.listen(3001, (error) => {
   if (error) return console.log(err);
